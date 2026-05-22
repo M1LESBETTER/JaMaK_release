@@ -3,14 +3,14 @@
   "schema_version": 1,
   "version": "0.1.0",
   "channel": "stable",
-  "published_at": "2026-05-22T12:20:56Z",
+  "published_at": "2026-05-22T12:34:00Z",
   "artifacts": [
     {
       "name": "jamak-core-0.1.0.zip",
       "kind": "core_app_zip",
-      "sha256": "1ae3252864ca42a4ea75fb437fd7b0fd0d8acee6c3773438c4037c35b4b258cf",
-      "size_bytes": 8274048,
-      "file_count": 36,
+      "sha256": "e8224eaf843a4da82c31f6ee2cc11a7c4963a77c92b245178002d6aee896de2e",
+      "size_bytes": 8281468,
+      "file_count": 38,
       "url": "https://github.com/M1LESBETTER/JaMaK_release/releases/download/v0.1.0/jamak-core-0.1.0.zip"
     }
   ],
