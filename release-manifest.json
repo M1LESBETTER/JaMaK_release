@@ -1,0 +1,44 @@
+{
+  "product": "JaMaK",
+  "schema_version": 1,
+  "version": "0.1.0",
+  "channel": "stable",
+  "published_at": "2026-05-22T12:06:34Z",
+  "artifacts": [
+    {
+      "name": "jamak-core-0.1.0.zip",
+      "kind": "core_app_zip",
+      "sha256": "76414f6dd26a9b173539af1dda1e5da4e4b2cccd2035577261d5a2263d0d346c",
+      "size_bytes": 8273596,
+      "file_count": 36,
+      "url": "https://github.com/M1LESBETTER/JaMaK_release/releases/download/v0.1.0/jamak-core-0.1.0.zip"
+    }
+  ],
+  "launch": {
+    "windows": "run.bat",
+    "server_url": "http://127.0.0.1:7878"
+  },
+  "excludes": [
+    ".git/**",
+    "packaging/dist/**",
+    "data/**",
+    "data/models/**",
+    "data/downloads/**",
+    "data/outputs/**",
+    "data/jobs/**",
+    "data/uploads/**",
+    "data/runtime_downloads/**",
+    "data/tmp/**",
+    "outputs/**",
+    "jobs/**",
+    "uploads/**",
+    "runtimes/**",
+    "__pycache__/**",
+    "*.pyc"
+  ],
+  "notes": [
+    "JaMaK core app releases do not bundle model weights or runtime sidecars.",
+    "Models and engines are installed on demand by the app after first launch."
+  ],
+  "notes_url": "https://github.com/M1LESBETTER/JaMaK_release/releases/tag/v0.1.0"
+}
