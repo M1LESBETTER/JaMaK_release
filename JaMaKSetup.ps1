@@ -33,6 +33,18 @@ function Read-JsonFromUrl {
     return $response.Content | ConvertFrom-Json
 }
 
+function Add-CacheBust {
+    param([string]$Url)
+    if ($Url -notmatch "^https://raw\.githubusercontent\.com/") {
+        return $Url
+    }
+    $separator = "?"
+    if ($Url.Contains("?")) {
+        $separator = "&"
+    }
+    return "$Url${separator}jamak_cache=$([DateTimeOffset]::UtcNow.ToUnixTimeSeconds())"
+}
+
 function Download-File {
     param(
         [string]$Url,
@@ -146,9 +158,9 @@ function Write-UninstallEntry {
 }
 
 Write-Step "Reading JaMaK release manifest"
-$latest = Read-JsonFromUrl -Url $ManifestUrl
+$latest = Read-JsonFromUrl -Url (Add-CacheBust $ManifestUrl)
 $releaseManifestUrl = Resolve-ReleaseUrl -BaseUrl $ManifestUrl -Value $latest.latest.manifest_url
-$manifest = Read-JsonFromUrl -Url $releaseManifestUrl
+$manifest = Read-JsonFromUrl -Url (Add-CacheBust $releaseManifestUrl)
 $artifact = $manifest.artifacts | Where-Object { $_.kind -eq "core_app_zip" } | Select-Object -First 1
 if (-not $artifact) {
     throw "Release manifest does not include a core_app_zip artifact."
